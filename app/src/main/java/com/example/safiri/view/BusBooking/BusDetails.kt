@@ -3,6 +3,8 @@ package com.example.safiri.view.BusBooking
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 
@@ -23,6 +25,7 @@ fun BusDetails() {
             .fillMaxSize()
             .fillMaxWidth()
             .background(Color.White)
+            .verticalScroll(rememberScrollState())
     ) {
         Column(
             modifier = Modifier

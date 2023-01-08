@@ -1,22 +1,18 @@
 package com.example.safiri.navigation.NavScreens
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
 import com.example.safiri.navigation.NavigationItem
+import com.example.safiri.view.BookBus
+import com.example.safiri.view.BusBooking.BusDetails
 import com.example.safiri.view.BusBooking.body
 
 import kotlinx.coroutines.CoroutineScope
@@ -65,7 +61,7 @@ fun BottomNavigationBar(navController:NavController) {
 fun NavigationGraph(navController: NavHostController,scaffoldState: ScaffoldState, scope: CoroutineScope) {
     NavHost(navController, startDestination = NavigationItem.Home.route) {
         composable(NavigationItem.Home.route) {
-            body()
+            body(navController = navController,)
         }
 
         composable(NavigationItem.MyBooking.route) {
@@ -75,6 +71,14 @@ fun NavigationGraph(navController: NavHostController,scaffoldState: ScaffoldStat
         composable(NavigationItem.Account.route) {
             BookingScreen()
         }
+
+        composable(NavigationItem.BusBook.route) {
+         BookBus(navController = navController)
+        }
+        composable(NavigationItem.BusLook.route) {
+            BusDetails()
+        }
+
 
     }
 }
