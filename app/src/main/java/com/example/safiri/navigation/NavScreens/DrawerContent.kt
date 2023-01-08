@@ -17,11 +17,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import kotlinx.coroutines.launch
 
 
 @Composable
-fun DrawerContent() {
+fun DrawerContent(navController: NavController) {
     //scrolable drawer
     val scrollState = rememberScrollState()
     val coroutineScope = rememberCoroutineScope()
@@ -161,7 +162,9 @@ fun DrawerContent() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp)
-                    .clickable { }
+                    .clickable {
+                        navController.navigate("account")
+                    }
             ) {
                 Icon(
                     painter = painterResource(

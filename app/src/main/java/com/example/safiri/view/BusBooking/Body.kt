@@ -10,19 +10,19 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+
 import com.example.safiri.R
 import com.example.safiri.navigation.NavScreens.*
-import kotlinx.coroutines.launch
 
 @Composable
-fun body() {
+fun body(navController: NavController) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
-    var navController = rememberNavController()
+
     Scaffold(
         scaffoldState = scaffoldState,
 
@@ -41,6 +41,7 @@ fun body() {
                     modifier = Modifier
                         .fillMaxWidth()
                 )
+
                 //create a card for the about safiri
 
                 Card(
@@ -49,7 +50,8 @@ fun body() {
                         .padding(16.dp)
                         .height(90.dp)
                         .clickable {
-                            //TODO
+                            //navigate to the next screen
+                            navController.navigate("bookBus")
                         },
                     elevation = 8.dp
 
@@ -98,6 +100,7 @@ fun body() {
                         .height(90.dp)
                         .clickable {
                             //TODO
+
                         },
                     elevation = 8.dp
 

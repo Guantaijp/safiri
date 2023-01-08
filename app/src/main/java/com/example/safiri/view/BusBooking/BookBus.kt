@@ -11,10 +11,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.safiri.R
 
 @Composable
-fun BookBus() {
+fun BookBus(navController: NavController) {
 
     Column(
         modifier = Modifier
@@ -49,6 +50,7 @@ fun BookBus() {
                 .padding(10.dp)
                 .clickable {
                     //navigate to the next screen
+                    navController.navigate("buslook")
                 },
             elevation = 4.dp
         ) {
